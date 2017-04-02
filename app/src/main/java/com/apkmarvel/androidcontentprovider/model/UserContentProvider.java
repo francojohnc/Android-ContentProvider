@@ -1,4 +1,4 @@
-package com.apkmarvel.androidcontentprovider;
+package com.apkmarvel.androidcontentprovider.model;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
+import com.apkmarvel.androidcontentprovider.AppDb;
 import com.apkmarvel.androidcontentprovider.engine.DatabaseHelper;
 import com.apkmarvel.androidcontentprovider.table.OrderTable;
 import com.apkmarvel.androidcontentprovider.table.UserTable;
@@ -18,17 +19,17 @@ import com.apkmarvel.androidcontentprovider.table.UserTable;
 
 public class UserContentProvider extends ContentProvider {
     public final String TAG = getClass().getSimpleName();
-    /*privider name*/
-    static final String PROVIDER_NAME = "com.apkmarvel.androidcontentprovider.UserContentProvider";
+    /*Content Provider Class Path*/
+    public static final String PROVIDER_NAME = "com.apkmarvel.androidcontentprovider.model.UserContentProvider";
     /*uri*/
-    static final String URL_USER = "content://" + PROVIDER_NAME + "/cpuser";
-    static final String URL_ORDER = "content://" + PROVIDER_NAME + "/cporder";
+    public  static final String URL_USER = "content://" + PROVIDER_NAME + "/cpuser";
+    public static final String URL_ORDER = "content://" + PROVIDER_NAME + "/cporder";
     /*content uri*/
-    static final Uri CONTENT_URL_USER = Uri.parse(URL_USER);
-    static final Uri CONTENT_URL_ORDER = Uri.parse(URL_ORDER);
+    public static final Uri CONTENT_URL_USER = Uri.parse(URL_USER);
+    public static final Uri CONTENT_URL_ORDER = Uri.parse(URL_ORDER);
     /*uri code*/
-    static final int URI_CODE_USER = 1;
-    static final int URI_CODE_ORDER = 2;
+    public static final int URI_CODE_USER = 1;
+    public static final int URI_CODE_ORDER = 2;
     // Used to match uris with Content Providers
     static final UriMatcher uriMatcher;
 
@@ -68,6 +69,7 @@ public class UserContentProvider extends ContentProvider {
     // Handles requests for the MIME type (Type of Data) of the data at the URI
     @Override
     public String getType(Uri uri) {
+        Log.e(TAG,"getType uri "+uri.toString());
         // Used to match uris with Content Providers
         switch (uriMatcher.match(uri)) {
             // vnd.android.cursor.dir/cpcontacts states that we expect multiple pieces of data
@@ -99,10 +101,9 @@ public class UserContentProvider extends ContentProvider {
                 OrderTable orderTable = new OrderTable();
                 rowID = orderTable.insert(values);
                 if (rowID > 0) {
-                    _uri = ContentUris.withAppendedId(CONTENT_URL_USER, rowID);
+                    _uri = ContentUris.withAppendedId(CONTENT_URL_ORDER, rowID);
                     /*notifyChange to all observers*/
                     getContext().getContentResolver().notifyChange(_uri, null);
-
                 }
                 break;
             default:

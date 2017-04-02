@@ -16,8 +16,8 @@
             </intent-filter>
         </activity>
         <provider
-            android:name=".UserContentProvider"
-            android:authorities="com.apkmarvel.androidcontentprovider.UserContentProvider"
+            android:name=".model.UserContentProvider"
+            android:authorities="com.apkmarvel.androidcontentprovider.model.UserContentProvider"
             android:exported="true"
             android:multiprocess="true" >
         </provider>

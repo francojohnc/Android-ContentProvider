@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.apkmarvel.androidcontentprovider.model.UserContentProvider;
 import com.apkmarvel.androidcontentprovider.table.OrderTable;
 import com.apkmarvel.androidcontentprovider.table.UserTable;
 
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     // The URL used to target the content provider
     ContentResolver resolver;
-    static final Uri CONTENT_URL_USER = Uri.parse("content://com.apkmarvel.androidcontentprovider.UserContentProvider/cpuser");
-    static final Uri CONTENT_URL_ORDER = Uri.parse("content://com.apkmarvel.androidcontentprovider.UserContentProvider/cporder");
+    static final Uri CONTENT_URL_USER = Uri.parse("content://com.apkmarvel.androidcontentprovider.model.UserContentProvider/cpuser");
+    static final Uri CONTENT_URL_ORDER = Uri.parse("content://com.apkmarvel.androidcontentprovider.model.UserContentProvider/cporder");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
