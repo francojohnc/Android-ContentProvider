@@ -1,4 +1,4 @@
-package com.apkmarvel.androidcontentprovider;
+package com.apkmarvel.androidcontentprovider.model;
 
 /**
  * Created by johncarlofranco on 01/04/2017.

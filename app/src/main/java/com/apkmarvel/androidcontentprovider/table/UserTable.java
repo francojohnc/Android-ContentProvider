@@ -1,5 +1,6 @@
-package com.apkmarvel.androidcontentprovider;
+package com.apkmarvel.androidcontentprovider.table;
 
+import com.apkmarvel.androidcontentprovider.model.User;
 import com.apkmarvel.androidcontentprovider.engine.QueryBuilder;
 import com.apkmarvel.androidcontentprovider.engine.Table;
 
@@ -8,13 +9,16 @@ import com.apkmarvel.androidcontentprovider.engine.Table;
  */
 
 public class UserTable extends Table {
-    static final String TABLE_NAME = "tbl_user";
+    public static final String TABLE_NAME = "tbl_user";
+    public static final String ID = "id";
+    public static final String FIRSTNAME = "firstname";
+    public static final String LASTNAME = "lastname";
     @Override
     public String getTableStructure() {
         QueryBuilder queryBuilder = new QueryBuilder();
         queryBuilder.setTableName(TABLE_NAME);
         queryBuilder.setClass(User.class);
-        queryBuilder.setPrimaryKey("id");
+        queryBuilder.setPrimaryKey(ID);
         String query = queryBuilder.build();
         return query;
     }

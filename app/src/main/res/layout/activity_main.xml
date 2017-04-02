@@ -8,19 +8,36 @@
 
    <Button
        android:layout_width="wrap_content"
-       android:text="add"
-       android:onClick="add"
+       android:text="add user"
+       android:onClick="addUser"
        android:layout_height="wrap_content" />
 
    <Button
        android:layout_width="wrap_content"
-       android:text="getdata"
-       android:onClick="getdata"
+       android:text="get user"
+       android:onClick="getUser"
        android:layout_height="wrap_content" />
    <Button
        android:layout_width="wrap_content"
-       android:text="deleteContact"
-       android:onClick="deleteContact"
+       android:text="delete user"
+       android:onClick="deleteUser"
+       android:layout_height="wrap_content" />
+
+   <Button
+       android:layout_width="wrap_content"
+       android:text="add order"
+       android:onClick="addOrder"
+       android:layout_height="wrap_content" />
+
+   <Button
+       android:layout_width="wrap_content"
+       android:text="get Order"
+       android:onClick="getOrder"
+       android:layout_height="wrap_content" />
+   <Button
+       android:layout_width="wrap_content"
+       android:text="delete Order"
+       android:onClick="deleteOrder"
        android:layout_height="wrap_content" />
 
 </LinearLayout>

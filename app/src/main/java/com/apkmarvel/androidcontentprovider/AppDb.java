@@ -4,6 +4,8 @@ package com.apkmarvel.androidcontentprovider;
 
 
 import com.apkmarvel.androidcontentprovider.engine.EngineDatabase;
+import com.apkmarvel.androidcontentprovider.table.OrderTable;
+import com.apkmarvel.androidcontentprovider.table.UserTable;
 
 public class AppDb extends EngineDatabase {
 
@@ -12,5 +14,6 @@ public class AppDb extends EngineDatabase {
     public AppDb() {
         super(DB_NAME, DB_VERSION);
         addTable(new UserTable());
+        addTable(new OrderTable());
     }
 }
